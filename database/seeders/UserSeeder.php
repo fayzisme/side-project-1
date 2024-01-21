@@ -26,7 +26,6 @@ class UserSeeder extends Seeder
             $user->name = $faker->name();
             $user->email = $faker->email();
             $user->password = Hash::make('password');
-            $user->member_id = $i+1;
             $user->email_verified_at = now();
             $user->remember_token = Str::random(10);
 

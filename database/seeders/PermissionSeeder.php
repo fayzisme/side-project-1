@@ -15,27 +15,27 @@ class PermissionSeeder extends Seeder
      */
     public function run(): void
     {
-        // $role = null;
-        // $permission = null;
-        // for ($i=0; $i < 2; $i++) { 
-        //     switch ($i) {
-        //         case 1:
-        //             $role = Role::create(['name' => 'petugas']);
-        //             $permission = Permission::create(['name' => 'index transaction']);
+        $role = null;
+        $permission = null;
+        for ($i=0; $i < 2; $i++) { 
+            switch ($i) {
+                case 1:
+                    $role = Role::create(['name' => 'petugas']);
+                    $permission = Permission::create(['name' => 'index transaction']);
 
-        //             $role->givePermissionTo($permission);
-        //             $permission->assignRole($role);
-        //             break;
+                    $role->givePermissionTo($permission);
+                    $permission->assignRole($role);
+                    break;
                 
-        //         default:
-        //             $role = Role::create(['name' => 'admin']);
-        //             $permission = Permission::create(['name' => 'index all']);
+                default:
+                    $role = Role::create(['name' => 'admin']);
+                    $permission = Permission::create(['name' => 'index all']);
 
-        //             $role->givePermissionTo($permission);
-        //             $permission->assignRole($role);
-        //             break;
-        //     }
-        // }
+                    $role->givePermissionTo($permission);
+                    $permission->assignRole($role);
+                    break;
+            }
+        }
 
         $users = User::where('id', '<', 5)->get();
 
