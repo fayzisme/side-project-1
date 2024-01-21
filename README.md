@@ -10,4 +10,6 @@
 
 ### php artisan migrate:fresh --seed
 
+### npm run dev
+
 ### php artisan serve --port=8003
