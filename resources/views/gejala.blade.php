@@ -119,7 +119,7 @@
                         </a> --}}
                         <div class="row">
                           <div class="col-md-6">
-                            <button @click="addData()" type="button" class="btn btn-primary float-right" data-toggle="modal" data-target="#modal-default">
+                            <button @click="addData()" type="button" class="btn btn-primary float-right text-white bg-blue-700 hover:bg-blue-800 " data-toggle="modal" data-target="#modal-default">
                               <i class="fas fa-plus"></i><span> Add gejala</span>
                             </button>
                           </div>

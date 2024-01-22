@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-<main class="py-4">
+<main class="py-4 h-screen flex items-center justify-center">
     <div class="login-box">
         <div class="login-logo">
             <a href="{{ route('home.index') }}"><b>Laravel</b></a>
@@ -51,7 +51,7 @@
                 </div>
     
             <div class="col-4">
-                <button type="submit" class="btn btn-primary btn-block">Sign In</button>
+                <button type="submit" class="btn btn-primary btn-block text-white bg-blue-700 hover:bg-blue-800 ">Sign In</button>
             </div>
     
         </div>

@@ -1,3 +1,81 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+:root {
+    --main-color: #6ee7b7;
+    --primary-color: #DCC6A2;
+    --abu-color: #3E4C54;
+    --bg-color: #E7F3EF;
+
+    --main-font: 'Inter', sans-serif;
+    --md-font: 'Poppins', sans-serif;
+}
+
+.btn-group {
+
+    .select {
+        position: relative;
+
+        input:checked+label {
+            background-color: var(--main-color);
+            &:hover,
+            &:focus,
+            &:active {
+                background-color: var(--main-color); 
+                       }
+        }
+
+        input {
+            opacity: 0;
+            position: absolute;
+        }
+
+        .button_select {
+            margin: 0 10px 10px 0;
+            display: flex;
+            background-color: transparent;
+
+            &:hover,
+            &:focus,
+            &:active {
+                background-color: transparent;
+            }
+        }
+    }
+
+}
+
+
+.option {
+    position: relative;
+
+    input {
+        opacity: 0;
+        position: absolute;
+    }
+
+    input:checked+span {
+        background-color: var(--main-color);
+        color: rgb(0, 0, 0)white;
+
+        &:hover,
+        &:focus,
+        &:active {
+            background-color: var(--main-color);   
+            color: rgb(0, 0, 0);
+
+            }
+    }
+
+    .btn-option {
+        display: flex;
+        background-color: transparent;
+
+        &:hover,
+        &:focus,
+        &:active {
+            background-color: transparent;
+        }
+    }
+}
