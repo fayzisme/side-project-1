@@ -26,7 +26,12 @@ Route::get('/diagnosa', function () {
 Route::get('/landingPage', function () {
     return view('landingPage');
 });
+Route::get('/informasi', function () {
+    return view('informasi');
+});
 Route::post('/diagnosa', [DataUsercontroller::class, 'index'])->name('simpanData');
+
+Route::post('/riwayats', [DataUsercontroller::class, 'riwayats'])->name('riwayats');
 
 
 Auth::routes();

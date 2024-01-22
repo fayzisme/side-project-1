@@ -5,15 +5,17 @@ namespace App\Http\Controllers;
 use App\Http\Requests\StoreRiwayatRequest;
 use App\Http\Requests\UpdateRiwayatRequest;
 use App\Models\Riwayat;
+use Request;
 
 class RiwayatController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request)
     {
-        //
+        // $data = $request->input('riwayats');
+        // dd($data);
     }
 
     /**

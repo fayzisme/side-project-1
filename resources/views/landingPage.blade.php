@@ -7,4 +7,5 @@
     @include('content.banner')
 
 </div>
+
 @endsection
