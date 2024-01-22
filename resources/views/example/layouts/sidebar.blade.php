@@ -52,14 +52,14 @@
             </a>
           </li>
           @endrole
-          <li class="nav-item">
+          {{-- <li class="nav-item">
             <a href="{{ route('book.index') }}" class="nav-link {{ request()->is('book') || request()->is('book/*') ? 'active' : '' }}">
               <i class="nav-icon fas fa-book"></i>
               <p>
                 Book
               </p>
             </a>
-          </li>
+          </li> --}}
           @role('admin')
           <li class="nav-item">
             <a href="#" class="nav-link">

@@ -1,10 +1,21 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="p-4 sm:ml-64">
-        <div class="p-4 rounded-lg mt-14">
+<div class="wrapper">
+    <!-- Preloader -->
+    <div class="preloader flex-column justify-content-center align-items-center">
+      <img class="animation__shake"  src="{{ asset ('assets/dist/img/AdminLTELogo.png')}}" alt="AdminLTELogo" height="60" width="60">
+    </div>
+  
+    <!-- Navbar -->
+    @include('layouts.navbar')
+    <!-- /.navbar -->
+  
+    <!-- Main Sidebar Container -->
+    @include('layouts.sidebar')
+  
     <!-- Content Wrapper. Contains page content -->
-    <div class="">
+    <div class="content-wrapper">
       <!-- Content Header (Page header) -->
       <div class="content-header">
         <div class="container-fluid">
@@ -127,20 +138,24 @@
       <!-- /.content -->
     </div>
     <!-- /.content-wrapper -->
-    <footer class="flex w-full justify-between">
-      <span class="flex">
-        <strong>Copyright &copy; 2024 <a href="#">Sipakar Rinitis</a>.</strong>
-        All rights reserved.
-      </span>
-      <div class="float-right d-none d-sm-inline-block mx-2">
+    <footer class="main-footer">
+      <strong>Copyright &copy; 2024 <a href="#">Sipakar Rinitis</a>.</strong>
+      All rights reserved.
+      <div class="float-right d-none d-sm-inline-block">
         <b>Version</b> 1.0.0
       </div>
     </footer>
   
-        </div>
-    </div>
-    
-    @push('js')
+    <!-- Control Sidebar -->
+    <aside class="control-sidebar control-sidebar-dark">
+      <!-- Control sidebar content goes here -->
+    </aside>
+    <!-- /.control-sidebar -->
+  </div>
+
+@endsection
+
+@push('js')
     <script type="text/javascript">
     // Dijalankan setelah halaman html selesai dimuat
     $(function () {

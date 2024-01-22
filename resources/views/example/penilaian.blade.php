@@ -17,8 +17,15 @@
       <img class="animation__shake"  src="{{ asset ('assets/dist/img/AdminLTELogo.png')}}" alt="AdminLTELogo" height="60" width="60">
     </div>
   
+    <!-- Navbar -->
+    @include('layouts.navbar')
+    <!-- /.navbar -->
+  
+    <!-- Main Sidebar Container -->
+    @include('layouts.sidebar')
+  
     <!-- Content Wrapper. Contains page content -->
-    <div class="content-wrapper mt-14">
+    <div class="content-wrapper">
       <!-- Content Header (Page header) -->
       <div class="content-header">
         <div class="container-fluid">
@@ -33,7 +40,7 @@
   
       <!-- Main content -->
       <section class="content">
-        <div id="gejala" class="container-fluid">
+        <div id="penilaian" class="container-fluid">
           <div class="row">
             <div class="col">
               @if ($errors->any())
@@ -55,12 +62,12 @@
                     <div class="modal-dialog">
                       <div class="modal-content">
                         <div class="modal-header">
-                          <h4 class="modal-title">Gejala</h4>
+                          <h4 class="modal-title">Penilaian</h4>
                           <button ref="close" id="close_modal" type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                           </button>
                         </div>
-                        <form id="quickFormgejala" @submit=submitForm($event)>
+                        <form id="quickFormpenilaian" @submit=submitForm($event)>
                         <div class="modal-body">
                           <div class="card">
                             
@@ -69,18 +76,18 @@
 
                                 <div class="card-body">
                                   <div class="form-group">
-                                    <label for="exampleInputNama1">Nama Gejala</label>
-                                    <input type="text" name="nama_gejala" class="form-control @error('name') is-invalid @enderror" id="exampleInputNama1" placeholder="Masukkan Nama" v-model="{{ json_encode(old('name')) }} || data.name" required>
-                                    @error('name')
+                                    <label for="exampleInputNama1">Penyakit</label>
+                                    <input type="text" name="id_penyakit" class="form-control @error('id_penyakit') is-invalid @enderror" id="exampleInputNama1" placeholder="Masukkan Nama" v-model="{{ json_encode(old('nama_penilaian')) }} || data.nama_penilaian" required>
+                                    @error('id_penyakit')
                                         <span class="invalid-feedback" role="alert">
                                             <strong>{{ $message }}</strong>
                                         </span>
                                     @enderror
                                   </div>
                                   <div class="form-group">
-                                    <label for="exampleInputKode1">Kode Gejala</label>
-                                    <input type="text" name="kode_gejala" class="form-control @error('kode') is-invalid @enderror" id="exampleInputKode1" placeholder="Masukkan Kode" v-model="{{ json_encode(old('kode')) }} || data.kode" required>
-                                    @error('kode')
+                                    <label for="exampleInputKode1">Gejala</label>
+                                    <input type="text" name="kode_penilaian" class="form-control @error('id_gejala') is-invalid @enderror" id="exampleInputKode1" placeholder="Masukkan Kode" v-model="{{ json_encode(old('kode_penilaian')) }} || data.kode_penilaian" required>
+                                    @error('id_gejala')
                                         <span class="invalid-feedback" role="alert">
                                             <strong>{{ $message }}</strong>
                                         </span>
@@ -106,15 +113,15 @@
                   </div>
                   <div class="card-header">
                     <div class="row">
-                      <div class="col-md-6"><h3 class="card-title">List Gejala</h3></div>
+                      <div class="col-md-6"><h3 class="card-title">List Penilaian</h3></div>
                       <div class="col-md-6">
-                        {{-- <a href="{{ route('gejala.create') }}" type="button" class="btn btn-primary float-right">
-                          <i class="fas fa-plus"></i><span> Add gejala</span>
+                        {{-- <a href="{{ route('penilaian.create') }}" type="button" class="btn btn-primary float-right">
+                          <i class="fas fa-plus"></i><span> Add penilaian</span>
                         </a> --}}
                         <div class="row">
                           <div class="col-md-6">
                             <button @click="addData()" type="button" class="btn btn-primary float-right" data-toggle="modal" data-target="#modal-default">
-                              <i class="fas fa-plus"></i><span> Add gejala</span>
+                              <i class="fas fa-plus"></i><span> Add penilaian</span>
                             </button>
                           </div>
                         </div>
@@ -128,7 +135,8 @@
                       <tr>
                         <th>No</th>
                         <th>Kode Gejala</th>
-                        <th>Nama Gejala</th>
+                        <th>Kode Penyakit</th>
+                        <th>Bobot Nilai</th>
                       </tr>
                       </thead>
                       {{-- <tfoot>
@@ -142,7 +150,7 @@
                       </tfoot> --}}
                     </table>
                     {{-- <div class="pagination">
-                      {{ $gejalas->links() }}
+                      {{ $penilaians->links() }}
                     </div> --}}
                   </div>
                   <!-- /.card-body -->
@@ -175,7 +183,7 @@
 @push('js')
 {{-- vue --}}
 <script type="text/javascript">
-  var apiUrl = 'api/gejala/list';
+  var apiUrl = 'api/penilaian/list';
   var columns = [
               {
                   'data': 'DT_RowIndex',
@@ -189,17 +197,17 @@
                   'orderable': true
               },
               {
-                  'data': 'nama_gejala',
+                  'data': 'kode_penyakit',
                   'class': 'text-center',
                   'orderable': true
               },
               {
                   render: (index, row, data, meta) => {
                     return `
-                    <a href="#" type="button" onclick=gejala.editData(event,${data.id}) class="btn btn-outline-warning" data-toggle="modal" data-target="#modal-default">
+                    <a href="#" type="button" onclick=penilaian.editData(event,${data.id}) class="btn btn-outline-warning" data-toggle="modal" data-target="#modal-default">
                                         <i class="fas fa-pen"></i>
                     </a>
-                    <a href="#" type="button" onclick=gejala.deleteData(event,${data.id}) class="btn btn-outline-danger">
+                    <a href="#" type="button" onclick=penilaian.deleteData(event,${data.id}) class="btn btn-outline-danger">
                                         <i class="fas fa-trash"></i>
                     </a>`
                   },
@@ -208,15 +216,15 @@
               }
       ];
 
-  var gejala = new Vue({
-    el: '#gejala',
+  var penilaian = new Vue({
+    el: '#penilaian',
     data : {
-      // apiUrl: {{ url('api/gejala/list') }},
+      // apiUrl: {{ url('api/penilaian/list') }},
       loading:false,
       data: {},
       datas: [],
       columns,
-      actionUrl: '{{ route('gejala.store') }}',
+      actionUrl: '{{ route('penilaian.store') }}',
       editStatus: false
     },
     mounted: function () {
@@ -247,7 +255,7 @@
                     })
       },
       addData(){
-        this.actionUrl = '{{ route('gejala.store') }}'
+        this.actionUrl = '{{ route('penilaian.store') }}'
         this.data = {
           name: '',
           kode: '',
@@ -259,11 +267,11 @@
         this.editStatus = true
         this.data = this.datas.filter(el => el.id == val)[0];
         console.log(this.data);
-        this.actionUrl = `{{ url('gejala') }}/${this.data.id}`
+        this.actionUrl = `{{ url('penilaian') }}/${this.data.id}`
         // $('#modal-default').modal();
       },
       deleteData(event,id){
-        this.actionUrl = `{{ url('gejala') }}/${id}`
+        this.actionUrl = `{{ url('penilaian') }}/${id}`
         if (confirm('Are you sure ?')) {
           axios.post(this.actionUrl, {_method : 'DELETE'}).then(response => {
             alert('Data has been removed')

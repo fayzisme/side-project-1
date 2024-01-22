@@ -11,21 +11,14 @@
 @endpush
 
 @section('content')
-<div class="wrapper">
+<div class="wrapper ">
     <!-- Preloader -->
     <div class="preloader flex-column justify-content-center align-items-center">
       <img class="animation__shake"  src="{{ asset ('assets/dist/img/AdminLTELogo.png')}}" alt="AdminLTELogo" height="60" width="60">
     </div>
   
-    <!-- Navbar -->
-    @include('layouts.navbar')
-    <!-- /.navbar -->
-  
-    <!-- Main Sidebar Container -->
-    @include('layouts.sidebar')
-  
     <!-- Content Wrapper. Contains page content -->
-    <div class="content-wrapper">
+    <div class="content-wrapper mt-14">
       <!-- Content Header (Page header) -->
       <div class="content-header">
         <div class="container-fluid">
@@ -120,7 +113,7 @@
                         </a> --}}
                         <div class="row">
                           <div class="col-md-6">
-                            <button @click="addData()" type="button" class="btn btn-primary float-right" data-toggle="modal" data-target="#modal-default">
+                            <button @click="addData()" type="button" class="btn btn-primary  float-right" data-toggle="modal" data-target="#modal-default">
                               <i class="fas fa-plus"></i><span> Add penyakit</span>
                             </button>
                           </div>

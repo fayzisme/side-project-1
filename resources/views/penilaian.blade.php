@@ -17,15 +17,9 @@
       <img class="animation__shake"  src="{{ asset ('assets/dist/img/AdminLTELogo.png')}}" alt="AdminLTELogo" height="60" width="60">
     </div>
   
-    <!-- Navbar -->
-    @include('layouts.navbar')
-    <!-- /.navbar -->
-  
-    <!-- Main Sidebar Container -->
-    @include('layouts.sidebar')
-  
+
     <!-- Content Wrapper. Contains page content -->
-    <div class="content-wrapper">
+    <div class="content-wrapper mt-14">
       <!-- Content Header (Page header) -->
       <div class="content-header">
         <div class="container-fluid">
