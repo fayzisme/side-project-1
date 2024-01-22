@@ -11,6 +11,12 @@
 @endpush
 
 @section('content')
+    <!-- Navbar -->
+    @include('partials.navbar')
+
+    <!-- Sidebar Container -->
+    @include('partials.sidebar')
+
 <div class="wrapper ">
     <!-- Preloader -->
     <div class="preloader flex-column justify-content-center align-items-center">

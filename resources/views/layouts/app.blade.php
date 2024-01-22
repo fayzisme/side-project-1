@@ -82,14 +82,9 @@
     <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.2.1/flowbite.min.js"></script>
     
-    <!-- Navbar -->
-    @include('partials.navbar')
+    {{-- konten --}}
 
     @yield('content')
-
-    <!-- Main Sidebar Container -->
-    @include('partials.sidebar')
-    {{-- @include('partials.footer') --}}
 
 
     <script src="{{ asset('assets/plugins/jquery/jquery.min.js') }}"></script>

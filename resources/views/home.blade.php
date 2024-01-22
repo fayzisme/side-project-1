@@ -1,6 +1,12 @@
 @extends('layouts.app')
 
 @section('content')
+    <!-- Navbar -->
+    @include('partials.navbar')
+
+    <!-- Sidebar Container -->
+    @include('partials.sidebar')
+
     <div class="p-4 sm:ml-64">
         <div class="p-4 rounded-lg mt-14">
     <!-- Content Wrapper. Contains page content -->
