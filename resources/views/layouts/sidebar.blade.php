@@ -9,9 +9,9 @@
     <div class="sidebar">
       <!-- Sidebar user panel (optional) -->
       <div class="user-panel mt-3 pb-3 mb-3 d-flex">
-        <div class="image">
+        <!-- <div class="image">
           <img src="{{ asset ('assets/dist/img/user2-160x160.jpg')}}" class="img-circle elevation-2" alt="User Image">
-        </div>
+        </div> -->
         <div class="info">
           <a href="#" class="d-block">{{ Auth::user()->name }}</a>
         </div>
@@ -43,23 +43,15 @@
             </a>
           </li>
           @role(['admin','petugas'])
-          <li class="nav-item">
-            <a href="{{ route('transaction.index') }}" class="nav-link {{ request()->is('transaction') || request()->is('transaction/*') ? 'active' : '' }}">
+          <!-- <li class="nav-item">
+            <a href="{{ route('riwayat.index') }}" class="nav-link {{ request()->is('riwayat') || request()->is('riwayat/*') ? 'active' : '' }}">
               <i class="nav-icon fas fa-list"></i>
               <p>
-                Peminjaman
+                Riwayat
               </p>
             </a>
-          </li>
+          </li> -->
           @endrole
-          <li class="nav-item">
-            <a href="{{ route('book.index') }}" class="nav-link {{ request()->is('book') || request()->is('book/*') ? 'active' : '' }}">
-              <i class="nav-icon fas fa-book"></i>
-              <p>
-                Book
-              </p>
-            </a>
-          </li>
           @role('admin')
           <li class="nav-item">
             <a href="#" class="nav-link">
@@ -71,34 +63,26 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="{{ route('catalog.index') }}" class="nav-link {{ request()->is('catalog') || request()->is('catalog/*') ? 'active' : '' }}">
+                <a href="{{ route('penyakit.index') }}" class="nav-link {{ request()->is('penyakit') || request()->is('penyakit/*') ? 'active' : '' }}">
                   <i class="nav-icon fas fa-table"></i>
                   <p>
-                    Catalog
+                    Penyakit
                   </p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="{{ route('publisher.index') }}" class="nav-link {{ request()->is('publisher') || request()->is('publisher/*') ? 'active' : '' }}">
-                  <i class="nav-icon fas fa-copy"></i>
+                <a href="{{ route('gejala.index') }}" class="nav-link {{ request()->is('gejala') || request()->is('gejala/*') ? 'active' : '' }}">
+                  <i class="nav-icon fas fa-table"></i>
                   <p>
-                    Publisher
+                    Gejala
                   </p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="{{ route('author.index') }}" class="nav-link {{ request()->is('author') || request()->is('author/*') ? 'active' : '' }}">
-                  <i class="nav-icon fas fa-edit"></i>
-                  <p>
-                    Author
-                  </p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="{{ route('member.index') }}" class="nav-link {{ request()->is('member') || request()->is('member/*') ? 'active' : '' }}">
+                <a href="{{ route('admin.index') }}" class="nav-link {{ request()->is('admin') || request()->is('admin/*') ? 'active' : '' }}">
                   <i class="nav-icon fas fa-user"></i>
                   <p>
-                    Member
+                    Admin
                   </p>
                 </a>
               </li>

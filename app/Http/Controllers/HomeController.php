@@ -36,7 +36,7 @@ class HomeController extends Controller
     {
         $total_gejala = Gejala::count();
         $total_penyakit = Penyakit::count();
-        $total_riwayat = Riwayat::whereYear('date_start', date('Y'))->count();
+        $total_riwayat = Riwayat::whereYear('created_at', date('Y'))->count();
 
         $data_donut = Penyakit::withCount('penilaians')->get();
         $labels = [];
@@ -51,7 +51,7 @@ class HomeController extends Controller
         for ($i=1; $i <= 12 ; $i++) { 
             array_push($labels_bar, date('F', mktime(0, 0, 0, $i, 10)));
             array_push($data_riwayat, Riwayat::whereYear('created_at', date('Y'))
-            ->whereMonth('date_start', Carbon::create(date('Y'), $i, 1, 0, 0, 0)->month)->count());
+            ->whereMonth('created_at', Carbon::create(date('Y'), $i, 1, 0, 0, 0)->month)->count());
         }
         
 
