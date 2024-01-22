@@ -6,6 +6,8 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\GejalaController;
 use App\Http\Controllers\PenyakitController;
+use App\Http\Controllers\RiwayatController;
+use App\Http\Controllers\AdminController;
 
 /*
 |--------------------------------------------------------------------------
@@ -29,5 +31,6 @@ Route::middleware('auth')->group(function () {
     Route::resource('home',HomeController::class);
     Route::resource('gejala',GejalaController::class);
     Route::resource('penyakit',PenyakitController::class);
-
+    Route::resource('riwayat',RiwayatController::class);
+    Route::resource('admin',AdminController::class);
 });
