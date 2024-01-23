@@ -6,7 +6,17 @@ use Illuminate\Http\Request;
 
 class DataUsercontroller extends Controller
 {
-    public function index(Request $request){
+    public function diagnosa(){
+
+        return view('diagnosa');
+    }
+    
+    public function result(){
+
+        return view('result');
+    }
+
+    public function simpanData(Request $request){
         $data = [
             'nama' => $request->input('nama'),
             'alamat' => $request->input('alamat'),
@@ -15,7 +25,7 @@ class DataUsercontroller extends Controller
         // dd($data);
               session(['data' => $data]);
 
-        return view('diagnosa', ['data' => $data]);
+        return view('diagnosa', ['data' => $data])->with('success', 'Terimakasih Telah Mengisi identisas');
     }
     public function riwayats(Request $request){
 
@@ -34,7 +44,7 @@ class DataUsercontroller extends Controller
         ];
         
         // dd($data);
-        return redirect('landingPage');
+        return redirect()->route('result')->with('success', 'SuccesFuly');
     }
 
 }

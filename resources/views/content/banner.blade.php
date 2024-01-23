@@ -45,7 +45,7 @@
             </div>
             <!-- Modal body -->
             <div class="p-4 md:p-5">
-                <form class="space-y-4" action="{{ route('simpanData') }}" method="post">
+                <form class="space-y-4" action="{{ route('simpanData') }}" method="POST">
                     @csrf
                     <div>
                         <label for="email"

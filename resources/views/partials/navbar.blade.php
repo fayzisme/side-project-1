@@ -14,9 +14,9 @@
                     </svg>
                 </button>
                 <a href="#" class="flex ms-2 md:me-24">
-                    <img src="https://logomaster.ai/hs-fs/hubfs/gaming%20logo%20g2.jpg?width=1700&height=1148&name=gaming%20logo%20g2.jpg" class="h-8 me-3" alt="FlowBite Logo" />
+                    <img src="assets/img/logo.png" class="h-8 me-3" alt="FlowBite Logo" />
                     <span
-                        class="self-center text-xl font-semibold sm:text-2xl whitespace-nowrap dark:text-white">SiPakar</span>
+                        class="self-center text-base font-semibold sm:text-2xl whitespace-nowrap dark:text-white">SiPakar</span>
                 </a>
             </div>
             <div class="flex items-center">

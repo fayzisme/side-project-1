@@ -29,7 +29,16 @@ Route::get('/landingPage', function () {
 Route::get('/informasi', function () {
     return view('informasi');
 });
-Route::post('/diagnosa', [DataUsercontroller::class, 'index'])->name('simpanData');
+Route::get('/result', function () {
+    return view('result');
+});
+
+
+Route::post('/diagnosas', [DataUsercontroller::class, 'diagnosa'])->name('diagnosas');
+
+Route::post('/result', [DataUsercontroller::class, 'result'])->name('result');
+
+Route::post('/diagnosa', [DataUsercontroller::class, 'simpanData'])->name('simpanData');
 
 Route::post('/riwayats', [DataUsercontroller::class, 'riwayats'])->name('riwayats');
 

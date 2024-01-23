@@ -196,5 +196,17 @@
             </div>
         </form>
     </div>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+    @if($message = Session::get('success'))
+    <script>
+      Swal.fire({
+    icon: "success",
+    title: "Horeee",
+    text: "{{ $message }}",
+  });
+    </script>
+    @endif
+  
     @include('partials.footer')
 @endsection
