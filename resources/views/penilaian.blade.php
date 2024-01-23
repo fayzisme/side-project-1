@@ -17,13 +17,12 @@
     <!-- Sidebar Container -->
     @include('partials.sidebar')
 
-<div class="wrapper">
+<div class="wrapper ">
     <!-- Preloader -->
     <div class="preloader flex-column justify-content-center align-items-center">
       <img class="animation__shake"  src="{{ asset ('assets/dist/img/AdminLTELogo.png')}}" alt="AdminLTELogo" height="60" width="60">
     </div>
   
-
     <!-- Content Wrapper. Contains page content -->
     <div class="content-wrapper mt-14">
       <!-- Content Header (Page header) -->
@@ -75,29 +74,48 @@
                                 <input v-if="editStatus" type="hidden" name="_method" value="PUT">
 
                                 <div class="card-body">
-                                  <div class="form-group">
-                                    <label for="exampleInputNama1">Penyakit</label>
-                                    <input type="text" name="id_penyakit" class="form-control @error('id_penyakit') is-invalid @enderror" id="exampleInputNama1" placeholder="Masukkan Nama" v-model="{{ json_encode(old('nama_penilaian')) }} || data.nama_penilaian" required>
-                                    @error('id_penyakit')
-                                        <span class="invalid-feedback" role="alert">
-                                            <strong>{{ $message }}</strong>
-                                        </span>
-                                    @enderror
-                                  </div>
-                                  <div class="form-group">
-                                    <label for="exampleInputKode1">Gejala</label>
-                                    <input type="text" name="kode_penilaian" class="form-control @error('id_gejala') is-invalid @enderror" id="exampleInputKode1" placeholder="Masukkan Kode" v-model="{{ json_encode(old('kode_penilaian')) }} || data.kode_penilaian" required>
-                                    @error('id_gejala')
-                                        <span class="invalid-feedback" role="alert">
-                                            <strong>{{ $message }}</strong>
-                                        </span>
-                                    @enderror
-                                  </div>
+                                <div class="form-group">
+                                  <label for="penyakit">Penyakit</label>
+                                  <select style="width: 100%;" id="penyakit" name="id_penyakit" v-model="{{ json_encode(old('id_penyakit')) }} || data.id_penyakit" class="form-select" aria-label=".form-select example">
+                                  <option value="" >Pilih Penyakit</option>
+                                    @foreach($penyakits as $penyakit)
+                                      <option value="{{ $penyakit->id }}">{{ $penyakit->nama_penyakit }} [{{$penyakit->kode_penyakit}}]</option>
+                                    @endforeach
+                                  </select>
+                                  @error('penyakit_id')
+                                      <span class="invalid-feedback" role="alert">
+                                          <strong>{{ $message }}</strong>
+                                      </span>
+                                  @enderror
+                                </div>
+                                <div class="form-group">
+                                  <label for="gejala">Gejala</label>
+                                  <select style="width: 100%;" id="gejala" name="id_gejala" v-model="{{ json_encode(old('id_gejala')) }} || data.id_gejala" class="form-select" aria-label=".form-select example">
+                                  <option value="">Pilih Gejala</option>  
+                                    @foreach($gejalas as $gejala)
+                                      <option value="{{ $gejala->id }}">{{ $gejala->nama_gejala }} [{{$gejala->kode_gejala}}]</option>
+                                    @endforeach
+                                  </select>
+                                  @error('gejala_id')
+                                      <span class="invalid-feedback" role="alert">
+                                          <strong>{{ $message }}</strong>
+                                      </span>
+                                  @enderror
+                                </div>
+                                <div class="form-group">
+                                  <label for="bonotnilai">Nilai</label>
+                                  <input @keydown="validateNumericInput($event)" type="text" name="bobot_penilaian" class="form-control @error('bobot_penilaian') is-invalid @enderror" id="bonotnilai" placeholder="Isi bobot nilai" v-model="{{ json_encode(old('bobot_penilaian')) }} || data.bobot_penilaian">
+                                  @error('bobot_penilaian')
+                                      <span class="invalid-feedback" role="alert">
+                                          <strong>{{ $message }}</strong>
+                                      </span>
+                                  @enderror
+                                </div>
                                 </div>
                             </div>
                             <div class="modal-footer justify-content-between">
                               <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                              <button type="submit" class="btn btn-primary">
+                              <button type="submit" class="btn btn-primary bg-blue-700">
                                 <div v-if=loading class="spinner-border" role="status">
                                   <span class="sr-only">Loading...</span>
                                 </div>
@@ -119,8 +137,8 @@
                           <i class="fas fa-plus"></i><span> Add penilaian</span>
                         </a> --}}
                         <div class="row">
-                          <div class="col-md-6">
-                            <button @click="addData()" type="button" class="btn btn-primary float-right" data-toggle="modal" data-target="#modal-default">
+                          <div class="col-md-12">
+                            <button @click="addData()" type="button" class="btn btn-primary  float-right text-white bg-blue-700 hover:bg-blue-800 " data-toggle="modal" data-target="#modal-default">
                               <i class="fas fa-plus"></i><span> Add penilaian</span>
                             </button>
                           </div>
@@ -134,12 +152,15 @@
                       <thead>
                       <tr>
                         <th>No</th>
-                        <th>Kode Gejala</th>
                         <th>Kode Penyakit</th>
-                        <th>Bobot Nilai</th>
+                        <th>Nama Penyakit</th>
+                        <th>Kode Gejala</th>
+                        <th>Nama Gejala</th>
+                        <th>Nilai</th>
+                        <th>Action</th>
                       </tr>
                       </thead>
-                      {{-- <tfoot>
+                      <!-- {{-- <tfoot>
                       <tr>
                         <th>Rendering engine</th>
                         <th>Browser</th>
@@ -147,7 +168,7 @@
                         <th>Engine version</th>
                         <th>CSS grade</th>
                       </tr>
-                      </tfoot> --}}
+                      </tfoot> --}} -->
                     </table>
                     {{-- <div class="pagination">
                       {{ $penilaians->links() }}
@@ -191,14 +212,33 @@
                   'orderable': true
               },
               {
+                  'data': 'kode_penyakit',
+                  'class': 'text-center',
+                  'width' : '200px',
+                  'orderable': true
+              },
+              {
+                  'data': 'nama_penyakit',
+                  'class': 'text-center',
+                  'width' : '200px',
+                  'orderable': true
+              },
+              {
                   'data': 'kode_gejala',
                   'class': 'text-center',
                   'width' : '200px',
                   'orderable': true
               },
               {
-                  'data': 'kode_penyakit',
+                  'data': 'nama_gejala',
                   'class': 'text-center',
+                  'width' : '200px',
+                  'orderable': true
+              },
+              {
+                  'data': 'bobot_penilaian',
+                  'class': 'text-center',
+                  'width' : '100px',
                   'orderable': true
               },
               {
@@ -221,7 +261,10 @@
     data : {
       // apiUrl: {{ url('api/penilaian/list') }},
       loading:false,
-      data: {},
+      data: {
+        id_penyakit: '',
+        id_gejala: ''
+      },
       datas: [],
       columns,
       actionUrl: '{{ route('penilaian.store') }}',
@@ -234,6 +277,15 @@
 
     },
     methods: {
+      validateNumericInput(event) {
+          const keyCode = event.keyCode;
+
+          // Cek apakah keyCode yang ditekan adalah angka, titik, atau tombol navigasi
+          if (!((keyCode >= 48 && keyCode <= 57) || (keyCode >= 96 && keyCode <= 105) || keyCode === 110 || keyCode === 190 || keyCode === 8 || keyCode === 37 || keyCode === 39 || keyCode === 46)) {
+              // Batalkan event jika bukan angka, titik, atau tombol navigasi
+              event.preventDefault();
+          }
+      },
       dataTable(){
        const _this = this
        _this.table =  $('#myTable2').DataTable({
@@ -257,8 +309,8 @@
       addData(){
         this.actionUrl = '{{ route('penilaian.store') }}'
         this.data = {
-          name: '',
-          kode: '',
+          id_penyakit: '',
+          id_gejala: '',
         }
         this.editStatus = false
       },
@@ -272,7 +324,7 @@
       },
       deleteData(event,id){
         this.actionUrl = `{{ url('penilaian') }}/${id}`
-        if (confirm('Are you sure ?')) {
+        if (confirm('Apakah anda yakin akan menghapus data ini ?')) {
           axios.post(this.actionUrl, {_method : 'DELETE'}).then(response => {
             alert('Data has been removed')
             this.table.ajax.reload()

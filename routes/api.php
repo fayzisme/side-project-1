@@ -4,6 +4,7 @@ use App\Http\Controllers\AuthorController;
 use App\Http\Controllers\BookController;
 use App\Http\Controllers\GejalaController;
 use App\Http\Controllers\MemberController;
+use App\Http\Controllers\PenilaianController;
 use App\Http\Controllers\PenyakitController;
 use App\Http\Controllers\RiwayatController;
 use App\Http\Controllers\TransactionController;
@@ -32,6 +33,10 @@ Route::prefix('gejala')->group( function(){
 
 Route::prefix('penyakit')->group( function(){
     Route::get('/list', [PenyakitController::class, 'api'])->name('api.penyakit.list');
+});
+
+Route::prefix('penilaian')->group( function(){
+    Route::get('/list', [PenilaianController::class, 'api'])->name('api.penilaian.list');
 });
 
 Route::prefix('riwayat')->group( function(){

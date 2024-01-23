@@ -4,7 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\StorePenilaianRequest;
 use App\Http\Requests\UpdatePenilaianRequest;
+use App\Models\Gejala;
 use App\Models\Penilaian;
+use App\Models\Penyakit;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -12,7 +14,15 @@ class PenilaianController extends Controller
 {
     public function api(Request $request)
     {
-        $penilaians = Penilaian::orderBy('created_at', 'asc')->filter(compact('request'))->get();
+        $penilaians = Penilaian::with(['penyakit', 'gejala'])->orderBy('id', 'asc')->get();
+
+        foreach ($penilaians as $key => $penilaian) {
+            $penilaian->kode_penyakit = $penilaian->penyakit->kode_penyakit;
+            $penilaian->nama_penyakit = $penilaian->penyakit->nama_penyakit;
+            $penilaian->kode_gejala = $penilaian->gejala->kode_gejala;
+            $penilaian->nama_gejala = $penilaian->gejala->nama_gejala;
+        }
+
         $datatables = datatables()->of($penilaians)->addIndexColumn()->editColumn('created_at', function(Penilaian $penilaian) {
             return convert_date($penilaian->created_at);
         })->make(true);
@@ -25,10 +35,12 @@ class PenilaianController extends Controller
      */
     public function index()
     {
+        $penyakits = Penyakit::all();
+        $gejalas = Gejala::all();
         $data = [
             'title' => 'Penilaian' 
         ];
-        return view('penilaian', compact('data'));
+        return view('penilaian', compact('data', 'penyakits', 'gejalas'));
     }
 
     /**
@@ -58,7 +70,7 @@ class PenilaianController extends Controller
                 $penilaian = new Penilaian([
                     'id_penyakit' => $data['id_penyakit'],
                     'id_gejala' => $data['id_gejala'],
-                    'bobot_nilai' => $data['bobot_nilai']
+                    'bobot_penilaian' => $data['bobot_penilaian']
                 ]);
             
                 // Simpan User dan Member dalam transaksi
@@ -116,7 +128,7 @@ class PenilaianController extends Controller
 
                 $penilaian->id_penyakit = $data['id_penyakit'];
                 $penilaian->id_gejala = $data['id_gejala'];
-                $penilaian->bobot_nilai = $data['bobot_nilai'];
+                $penilaian->bobot_penilaian = $data['bobot_penilaian'];
                 $penilaian->save();
             
                 // Jika semuanya berhasil, commit transaksi

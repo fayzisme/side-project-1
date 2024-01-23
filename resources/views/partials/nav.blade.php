@@ -1,6 +1,6 @@
 <nav class="bg-white border-gray-200 dark:bg-gray-900 sticky top-0 w-full">
     <div class=" flex flex-wrap items-center justify-between mx-auto md:mx-12 p-6">
-        <a href="" class="flex items-center space-x-3 rtl:space-x-reverse">
+        <a href="{{ route('home.index') }}" class="flex items-center space-x-3 rtl:space-x-reverse">
             <img src="assets/img/logo.png" class="h-8" alt="Flowbite Logo" />
             <span class="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">SiPakar</span>
         </a>

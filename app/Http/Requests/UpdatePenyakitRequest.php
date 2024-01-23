@@ -23,8 +23,8 @@ class UpdatePenyakitRequest extends FormRequest
     {
         $id = $this->route('id');
         return [
-            "kode_gejala" => 'required|unique:gejalas,kode_gejala,'.$id,
-            "nama_gejala"=> 'required|string|max:255',
+            "kode_penyakit" => 'required|unique:penyakits,kode_penyakit,'.$id,
+            "nama_penyakit"=> 'required|string|max:255',
         ];
     }
 }

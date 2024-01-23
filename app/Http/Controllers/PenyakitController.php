@@ -12,10 +12,13 @@ class PenyakitController extends Controller
 {
     public function api(Request $request)
     {
-        $penyakits = Penyakit::orderBy('created_at', 'asc')->filter(compact('request'))->get();
+        // dd('masuk');
+        $penyakits = Penyakit::orderBy('id', 'desc')->get();
         $datatables = datatables()->of($penyakits)->addIndexColumn()->editColumn('created_at', function(Penyakit $penyakit) {
             return convert_date($penyakit->created_at);
         })->make(true);
+
+        
         return $datatables;
     }
     /**
@@ -54,7 +57,7 @@ class PenyakitController extends Controller
         DB::transaction(function () use ($request) {
             try {
                 $data = $request->all();
-            
+                
                 $penyakit = new Penyakit([
                     'kode_penyakit' => $data['kode_penyakit'],
                     'nama_penyakit' => $data['nama_penyakit']
@@ -114,7 +117,7 @@ class PenyakitController extends Controller
                 $data = $request->all();
 
                 $penyakit->kode_penyakit = $data['kode_penyakit'];
-                $penyakit->name_penyakit = $data['nama_penyakit'];
+                $penyakit->nama_penyakit = $data['nama_penyakit'];
                 
                 $penyakit->save();
             
@@ -143,8 +146,8 @@ class PenyakitController extends Controller
     {
         // dd($penyakit);
         $penyakit->delete();
-        return redirect()->route('penyakit.index')->with('pesan', '<div class="alert alert-danger p-3 mt-3" role="alert">
-        Penyakit telah dihapus
-        </div>');
+        // return redirect()->route('penyakit.index')->with('pesan', '<div class="alert alert-danger p-3 mt-3" role="alert">
+        // Penyakit telah dihapus
+        // </div>');
     }
 }

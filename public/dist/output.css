@@ -3025,3 +3025,8 @@ input:checked + .toggle-bg {
 .rtl\:space-x-reverse:where([dir="rtl"], [dir="rtl"] *) > :not([hidden]) ~ :not([hidden]) {
   --tw-space-x-reverse: 1;
 }
+
+.active {
+  background-color: rgb(243 244 246 / var(--tw-bg-opacity));
+  color: rgb(17 24 39 / var(--tw-text-opacity));
+}

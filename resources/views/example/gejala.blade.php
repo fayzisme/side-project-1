@@ -271,7 +271,7 @@
       },
       deleteData(event,id){
         this.actionUrl = `{{ url('gejala') }}/${id}`
-        if (confirm('Are you sure ?')) {
+        if (confirm('Apakah anda yakin menghapus data ini ?')) {
           axios.post(this.actionUrl, {_method : 'DELETE'}).then(response => {
             alert('Data has been removed')
             this.table.ajax.reload()
