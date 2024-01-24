@@ -96,7 +96,7 @@
                             </div>
                             <div class="modal-footer justify-content-between">
                               <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                              <button type="submit" class="btn btn-primary">
+                              <button type="submit" class="btn btn-primary bg-blue-700">
                                 <div v-if=loading class="spinner-border" role="status">
                                   <span class="sr-only">Loading...</span>
                                 </div>
@@ -118,7 +118,7 @@
                           <i class="fas fa-plus"></i><span> Add penyakit</span>
                         </a> --}}
                         <div class="row">
-                          <div class="col-md-6">
+                          <div class="col-md-12">
                             <button @click="addData()" type="button" class="btn btn-primary  float-right text-white bg-blue-700 hover:bg-blue-800 " data-toggle="modal" data-target="#modal-default">
                               <i class="fas fa-plus"></i><span> Add penyakit</span>
                             </button>
@@ -135,9 +135,10 @@
                         <th>No</th>
                         <th>Kode Penyakit</th>
                         <th>Nama Penyakit</th>
+                        <th>Action</th>
                       </tr>
                       </thead>
-                      {{-- <tfoot>
+                      <!-- {{-- <tfoot>
                       <tr>
                         <th>Rendering engine</th>
                         <th>Browser</th>
@@ -145,7 +146,7 @@
                         <th>Engine version</th>
                         <th>CSS grade</th>
                       </tr>
-                      </tfoot> --}}
+                      </tfoot> --}} -->
                     </table>
                     {{-- <div class="pagination">
                       {{ $penyakits->links() }}
@@ -270,7 +271,7 @@
       },
       deleteData(event,id){
         this.actionUrl = `{{ url('penyakit') }}/${id}`
-        if (confirm('Are you sure ?')) {
+        if (confirm('Apakah anda yakin akan menghapus data ini ?')) {
           axios.post(this.actionUrl, {_method : 'DELETE'}).then(response => {
             alert('Data has been removed')
             this.table.ajax.reload()

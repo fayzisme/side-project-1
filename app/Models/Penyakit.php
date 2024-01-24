@@ -14,7 +14,7 @@ class Penyakit extends Model
     ];
 
     protected $fillable = [
-        'kode_pengakit',
+        'kode_penyakit',
         'nama_penyakit'
     ];
 

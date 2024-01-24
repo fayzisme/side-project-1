@@ -11,7 +11,7 @@ class Penilaian extends Model
     protected $table = 'penilaians';
     protected $guard = ["id"];
     protected $fillable = [
-        'id_pengakit',
+        'id_penyakit',
         'id_gejala',
         'bobot_penilaian'
     ];

@@ -12,7 +12,7 @@ class GejalaController extends Controller
 {
     public function api(Request $request)
     {
-        $gejalas = Gejala::orderBy('created_at', 'asc')->filter(compact('request'))->get();
+        $gejalas = Gejala::orderBy('id', 'asc')->get();
         $datatables = datatables()->of($gejalas)->addIndexColumn()->editColumn('created_at', function(Gejala $gejala) {
             return convert_date($gejala->created_at);
         })->make(true);
@@ -114,7 +114,7 @@ class GejalaController extends Controller
                 $data = $request->all();
 
                 $gejala->kode_gejala = $data['kode_gejala'];
-                $gejala->name_gejala = $data['nama_gejala'];
+                $gejala->nama_gejala = $data['nama_gejala'];
                 
                 $gejala->save();
             
@@ -143,8 +143,8 @@ class GejalaController extends Controller
     {
         // dd($gejala);
         $gejala->delete();
-        return redirect()->route('gejala.index')->with('pesan', '<div class="alert alert-danger p-3 mt-3" role="alert">
-        Gejala telah dihapus
-        </div>');
+        // return redirect()->route('gejala.index')->with('pesan', '<div class="alert alert-danger p-3 mt-3" role="alert">
+        // Gejala telah dihapus
+        // </div>');
     }
 }

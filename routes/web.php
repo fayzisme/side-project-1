@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\GejalaController;
+use App\Http\Controllers\PenilaianController;
 use App\Http\Controllers\PenyakitController;
 
 /*
@@ -40,7 +41,7 @@ Route::post('/result', [DataUsercontroller::class, 'result'])->name('result');
 
 Route::post('/diagnosa', [DataUsercontroller::class, 'simpanData'])->name('simpanData');
 
-Route::post('/riwayats', [DataUsercontroller::class, 'riwayats'])->name('riwayats');
+// Route::post('/riwayats', [DataUsercontroller::class, 'riwayats'])->name('riwayats');
 
 
 Auth::routes();
@@ -53,5 +54,5 @@ Route::middleware('auth')->group(function () {
     Route::resource('gejala',GejalaController::class);
     Route::resource('riwayat',RiwayatController::class);
     Route::resource('penyakit',PenyakitController::class);
-
+    Route::resource('penilaian',PenilaianController::class);
 });

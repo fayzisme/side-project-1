@@ -76,7 +76,7 @@
                                 <div class="card-body">
                                   <div class="form-group">
                                     <label for="exampleInputNama1">Nama Gejala</label>
-                                    <input type="text" name="nama_gejala" class="form-control @error('name') is-invalid @enderror" id="exampleInputNama1" placeholder="Masukkan Nama" v-model="{{ json_encode(old('name')) }} || data.name" required>
+                                    <input type="text" name="nama_gejala" class="form-control @error('name') is-invalid @enderror" id="exampleInputNama1" placeholder="Masukkan Nama" v-model="{{ json_encode(old('nama_gejala')) }} || data.nama_gejala" required>
                                     @error('name')
                                         <span class="invalid-feedback" role="alert">
                                             <strong>{{ $message }}</strong>
@@ -85,7 +85,7 @@
                                   </div>
                                   <div class="form-group">
                                     <label for="exampleInputKode1">Kode Gejala</label>
-                                    <input type="text" name="kode_gejala" class="form-control @error('kode') is-invalid @enderror" id="exampleInputKode1" placeholder="Masukkan Kode" v-model="{{ json_encode(old('kode')) }} || data.kode" required>
+                                    <input type="text" name="kode_gejala" class="form-control @error('kode') is-invalid @enderror" id="exampleInputKode1" placeholder="Masukkan Kode" v-model="{{ json_encode(old('kode_gejala')) }} || data.kode_gejala" required>
                                     @error('kode')
                                         <span class="invalid-feedback" role="alert">
                                             <strong>{{ $message }}</strong>
@@ -96,7 +96,7 @@
                             </div>
                             <div class="modal-footer justify-content-between">
                               <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                              <button type="submit" class="btn btn-primary">
+                              <button type="submit" class="btn btn-primary bg-blue-700">
                                 <div v-if=loading class="spinner-border" role="status">
                                   <span class="sr-only">Loading...</span>
                                 </div>
@@ -118,7 +118,7 @@
                           <i class="fas fa-plus"></i><span> Add gejala</span>
                         </a> --}}
                         <div class="row">
-                          <div class="col-md-6">
+                          <div class="col-md-12">
                             <button @click="addData()" type="button" class="btn btn-primary float-right text-white bg-blue-700 hover:bg-blue-800 " data-toggle="modal" data-target="#modal-default">
                               <i class="fas fa-plus"></i><span> Add gejala</span>
                             </button>
@@ -135,9 +135,10 @@
                         <th>No</th>
                         <th>Kode Gejala</th>
                         <th>Nama Gejala</th>
+                        <th>Action</th>
                       </tr>
                       </thead>
-                      {{-- <tfoot>
+                      <!-- {{-- <tfoot>
                       <tr>
                         <th>Rendering engine</th>
                         <th>Browser</th>
@@ -145,11 +146,11 @@
                         <th>Engine version</th>
                         <th>CSS grade</th>
                       </tr>
-                      </tfoot> --}}
+                      </tfoot> --}} -->
                     </table>
-                    {{-- <div class="pagination">
+                    <!-- {{-- <div class="pagination">
                       {{ $gejalas->links() }}
-                    </div> --}}
+                    </div> --}} -->
                   </div>
                   <!-- /.card-body -->
               </div>
@@ -270,7 +271,7 @@
       },
       deleteData(event,id){
         this.actionUrl = `{{ url('gejala') }}/${id}`
-        if (confirm('Are you sure ?')) {
+        if (confirm('Apakah anda yakin menghapus data ini ?')) {
           axios.post(this.actionUrl, {_method : 'DELETE'}).then(response => {
             alert('Data has been removed')
             this.table.ajax.reload()

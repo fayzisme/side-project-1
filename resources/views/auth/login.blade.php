@@ -4,12 +4,12 @@
 <main class="py-4 h-screen flex items-center justify-center">
     <div class="login-box">
         <div class="login-logo">
-            <a href="{{ route('home.index') }}"><b>Laravel</b></a>
+            <a href="{{ route('home.index') }}"><b>Sistem Pakar</b></a>
         </div>
     
         <div class="card">
             <div class="card-body login-card-body">
-            <p class="login-box-msg">Sign in to start your session</p>
+            <p class="login-box-msg">Sign in to manage apps</p>
             <form method="POST" action="{{ route('login') }}">
             @csrf
                 <div class="input-group mb-3">
@@ -29,7 +29,6 @@
     
                 <div class="input-group mb-3">
                 <input placeholder= "Password" id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password">
-                            x
                     <div class="input-group-append">
                         <div class="input-group-text">
                             <span class="fas fa-lock"></span>

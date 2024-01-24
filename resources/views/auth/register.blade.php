@@ -4,7 +4,7 @@
 <div class="w-fu h-screen flex items-center justify-center">
   <div class="register-box">
       <div class="register-logo">
-        <a href="{{ route('home.index') }}"><b>Admin</b>LTE</a>
+        <a href="{{ route('home.index') }}"><b>Sistem Pakar</b></a>
       </div>
     
       <div class="card">
