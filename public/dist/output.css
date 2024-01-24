@@ -3180,3 +3180,7 @@ input:checked + .toggle-bg {
   background-color: rgb(243 244 246 / var(--tw-bg-opacity));
   color: rgb(17 24 39 / var(--tw-text-opacity));
 }
+
+.active-link {
+  color: rgb(26 86 219 / var(--tw-text-opacity));
+}

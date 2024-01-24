@@ -15,6 +15,14 @@
                 <span class="ms-3">Dashboard</span>
             </a>
 
+            <a href="{{ route('admin.index') }}"
+                class="{{ request()->is('admin') || request()->is('admin/*') ? 'active' : '' }} flex items-center p-2 text-gray-500 focus:text-gray-900 hover:text-gray-900 rounded-lg dark:text-white focus:bg-gray-100 hover:bg-gray-100 dark:hover:bg-gray-700 group">
+                <svg class="w-6 h-6 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 group-focus:text-gray-900 dark:group-hover:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24">
+                    <path fill-rule="evenodd" d="M12 20a8 8 0 0 1-5-1.8v-.6c0-1.8 1.5-3.3 3.3-3.3h3.4c1.8 0 3.3 1.5 3.3 3.3v.6a8 8 0 0 1-5 1.8ZM2 12a10 10 0 1 1 10 10A10 10 0 0 1 2 12Zm10-5a3.3 3.3 0 0 0-3.3 3.3c0 1.7 1.5 3.2 3.3 3.2 1.8 0 3.3-1.5 3.3-3.3C15.3 8.6 13.8 7 12 7Z" clip-rule="evenodd"/>
+                </svg>
+                <span class="flex-1 ms-3 whitespace-nowrap">Admin</span>
+            </a>
+
             <a href="{{ route('penyakit.index') }}"
                 class="{{ request()->is('penyakit') || request()->is('penyakit/*') ? 'active' : '' }} flex items-center p-2 text-gray-500 focus:text-gray-900 hover:text-gray-900 rounded-lg dark:text-white focus:bg-gray-100 hover:bg-gray-100 dark:hover:bg-gray-700 group">
                 <svg class="w-5 h-5 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 group-focus:text-gray-900 dark:group-hover:text-white"

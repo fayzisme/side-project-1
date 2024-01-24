@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AdminController;
 use App\Http\Controllers\AuthorController;
 use App\Http\Controllers\BookController;
 use App\Http\Controllers\GejalaController;
@@ -33,6 +34,10 @@ Route::prefix('gejala')->group( function(){
 
 Route::prefix('penyakit')->group( function(){
     Route::get('/list', [PenyakitController::class, 'api'])->name('api.penyakit.list');
+});
+
+Route::prefix('admin')->group( function(){
+    Route::get('/list', [AdminController::class, 'api'])->name('api.admin.list');
 });
 
 Route::prefix('penilaian')->group( function(){

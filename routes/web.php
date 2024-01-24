@@ -1,6 +1,6 @@
 <?php
 
-
+use App\Http\Controllers\AdminController;
 use App\Http\Controllers\DataUsercontroller;
 use App\Http\Controllers\RiwayatController;
 use Illuminate\Support\Facades\Route;
@@ -26,16 +26,18 @@ use App\Http\Controllers\PenyakitController;
 // });
 Route::get('/landingPage', function () {
     return view('landingPage');
-});
+})->name('landingpage');
+
 Route::get('/informasi', function () {
     return view('informasi');
-});
+})->name('informasi');
+
 Route::get('/result', function () {
     return view('result');
 });
 
 
-Route::post('/diagnosas', [DataUsercontroller::class, 'diagnosa'])->name('diagnosas');
+Route::post('/diagnosas', [DataUsercontroller::class, 'diagnosa'])->name('diagnosa');
 
 Route::post('/result', [DataUsercontroller::class, 'result'])->name('result');
 
@@ -55,4 +57,5 @@ Route::middleware('auth')->group(function () {
     Route::resource('riwayat',RiwayatController::class);
     Route::resource('penyakit',PenyakitController::class);
     Route::resource('penilaian',PenilaianController::class);
+    Route::resource('admin',AdminController::class);
 });

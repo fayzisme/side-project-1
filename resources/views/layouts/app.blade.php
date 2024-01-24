@@ -8,7 +8,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Laravel') }}</title>
+    <title>{{ config('app.name', 'Sistem Pakar') }}</title>
 
     <!-- Fonts -->
     <!-- Google Font: Source Sans Pro -->
@@ -74,7 +74,6 @@
     {{-- konten --}}
 
     @yield('content')
-
 
     <script src="{{ asset('assets/plugins/jquery/jquery.min.js') }}"></script>
 
