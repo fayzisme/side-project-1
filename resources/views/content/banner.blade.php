@@ -1,5 +1,10 @@
-<div class="grid grid-cols-2 items-center py-16 pb-14 px-10">
-    <div class="col-span-1 space-y-6">
+<div class="grid grid-cols-2 items-center py-16 pb-14 px-10 mb-12">
+    <div 
+    data-aos="fade-right"
+      data-aos-easing="linear"
+     data-aos-offset="500"
+     data-aos-duration="700"
+    class="col-span-1 space-y-6">
         <h1 class="text-5xl  font-bold ">
             Diagnosa
             Rinitis Pada Anak
@@ -16,7 +21,12 @@
         class="text-white bg-gradient-to-br from-green-400 to-blue-600 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-green-200 dark:focus:ring-green-800 font-medium rounded-lg text-sm py-2 p-0.5 px-5 text-center ">
         Cek sekarang</button>
     </div>
-    <div class="col-span-1 flex justify-end">
+    <div
+    data-aos="fade-left"
+      data-aos-easing="linear"
+     data-aos-offset="500"
+     data-aos-duration="700"
+    class="col-span-1 flex justify-end">
         <img src="assets/img/bg-dokter.png" alt="">
     </div>
 </div>
@@ -76,4 +86,3 @@
         </div>
     </div>
 </div>
-@include('partials.footer')
