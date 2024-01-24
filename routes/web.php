@@ -21,9 +21,9 @@ use App\Http\Controllers\PenyakitController;
 |
 */
 
-Route::get('/diagnosa', function () {
-    return view('diagnosa');
-});
+// Route::get('/diagnosa', function () {
+//     return view('diagnosa');
+// });
 Route::get('/landingPage', function () {
     return view('landingPage');
 });
@@ -41,7 +41,7 @@ Route::post('/result', [DataUsercontroller::class, 'result'])->name('result');
 
 Route::post('/diagnosa', [DataUsercontroller::class, 'simpanData'])->name('simpanData');
 
-// Route::post('/riwayats', [DataUsercontroller::class, 'riwayats'])->name('riwayats');
+Route::post('/riwayats', [DataUsercontroller::class, 'riwayats'])->name('riwayats');
 
 
 Auth::routes();

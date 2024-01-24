@@ -40,7 +40,7 @@
                         </span>
                     </label>
                     <label class="option">
-                        <input type="radio" name="demam" value="0.1"  class="">
+                        <input type="radio" name="demam" value="0.2"  class="">
                         <span
                             class="btn-option bg-bg font-bold text-center text-sm border-2 border-blue-700 py-2 px-2 rounded-md focus:outline-none bg-yellow"
                             href="">Mungkin
@@ -54,14 +54,14 @@
                         </span>
                     </label>
                     <label class="option">
-                        <input type="radio" name="demam" value="Hampir Pasti" class="">
+                        <input type="radio" name="demam" value="0.3" class="">
                         <span
                             class="btn-option bg-bg font-bold text-center text-sm border-2 border-blue-700 py-2 px-2 rounded-md  focus:outline-none bg-yellow"
                             href="">Hampir Pasti
                         </span>
                     </label>
                     <label class="option">
-                        <input type="radio" name="demam" value="Pasti" class="">
+                        <input type="radio" name="demam" value="0.4" class="">
                         <span
                             class="btn-option bg-bg  font-bold text-center text-sm border-2 border-blue-700 py-2 px-2 rounded-md  focus:outline-none bg-yellow"
                             href="">Pasti
@@ -77,49 +77,49 @@
                 </h1>
                 <div class="container mx-auto flex gap-8 justify-center  px-5 py-3 btn-group">
                     <label class="option">
-                        <input type="radio" name="mual" value="0.1"  class="">
+                        <input type="radio" name="mual" value="1.0"  class="">
                         <span
                             class="btn-option bg-bg font-bold text-center text-sm border-2 border-blue-700 py-2 px-2 rounded-md  focus:outline-none bg-yellow"
                             href="">Tidak Tahu
                         </span>
                     </label>
                     <label class="option">
-                        <input type="radio" name="mual" value="0.1"  class="">
+                        <input type="radio" name="mual" value="1.1"  class="">
                         <span
                             class="btn-option bg-bg font-bold text-center text-sm border-2 border-blue-700 py-2 px-2 rounded-md focus:outline-none bg-yellow"
                             href="">Mungkin Tidak
                         </span>
                     </label>
                     <label class="option">
-                        <input type="radio" name="mual" value="0.1"  class="">
+                        <input type="radio" name="mual" value="1.2"  class="">
                         <span
                             class="btn-option bg-bg font-bold text-center text-sm border-2 border-blue-700 py-2 px-2 rounded-md   focus:outline-none bg-yellow"
                             href="">Kemungkinan Besar Tidak
                         </span>
                     </label>
                     <label class="option">
-                        <input type="radio" name="mual" value="0.1"  class="">
+                        <input type="radio" name="mual" value="1.3"  class="">
                         <span
                             class="btn-option bg-bg font-bold text-center text-sm border-2 border-blue-700 py-2 px-2 rounded-md focus:outline-none bg-yellow"
                             href="">Mungkin
                         </span>
                     </label>
                     <label class="option">
-                        <input type="radio" name="mual" value="0.1"  class="">
+                        <input type="radio" name="mual" value="1.4"  class="">
                         <span
                             class="btn-option bg-bg font-bold text-center text-sm border-2 border-blue-700 py-2 px-2 rounded-md  focus:outline-none bg-yellow"
                             href="">Kemungkinan Besar
                         </span>
                     </label>
                     <label class="option">
-                        <input type="radio" name="mual" value="0.1"  class="">
+                        <input type="radio" name="mual" value="1.5"  class="">
                         <span
                             class="btn-option bg-bg font-bold text-center text-sm border-2 border-blue-700 py-2 px-2 rounded-md  focus:outline-none bg-yellow"
                             href="">Hampir Pasti
                         </span>
                     </label>
                     <label class="option">
-                        <input type="radio" name="mual" value="0.1"  class="">
+                        <input type="radio" name="mual" value="1.6"  class="">
                         <span
                             class="btn-option bg-bg  font-bold text-center text-sm border-2 border-blue-700 py-2 px-2 rounded-md  focus:outline-none bg-yellow"
                             href="">Pasti
@@ -135,7 +135,7 @@
                 </h1>
                 <div class="container mx-auto flex gap-8 justify-center  px-5 py-3 btn-group">
                     <label class="option">
-                        <input type="radio" name="pilek" value="0.1"  class="">
+                        <input type="radio" name="pilek" value="2.0"  class="">
                         <span
                             class="btn-option bg-bg font-bold text-center text-sm border-2 border-blue-700 py-2 px-2 rounded-md  focus:outline-none bg-yellow"
                             href="">Tidak Tahu
@@ -198,15 +198,16 @@
     </div>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
-    @if($message = Session::get('success'))
+    @if($data)
     <script>
-      Swal.fire({
-    icon: "success",
-    title: "Horeee",
-    text: "{{ $message }}",
-  });
-    </script>
-    @endif
+        Swal.fire({
+      icon: "success",
+      title: "SuccesFuly",
+      text: "",
+    });
+      </script>
+      @endif
+    
   
     @include('partials.footer')
 @endsection
